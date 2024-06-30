@@ -1,22 +1,27 @@
 # Обновлённый views.py
-from rest_framework import generics
+from rest_framework import viewsets
 
 from .models import Cat
 from .serializers import CatSerializer
 
-
-class CatList(generics.ListCreateAPIView):
+# Simple viewset
+class CatViewSet(viewsets.ModelViewSet):
     queryset = Cat.objects.all()
     serializer_class = CatSerializer
 
-
-class CatDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Cat.objects.all()
-    serializer_class = CatSerializer
-
-
+# # дженерики
+# class CatList(generics.ListCreateAPIView):
+#     queryset = Cat.objects.all()
+#     serializer_class = CatSerializer
 
 
+# class CatDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Cat.objects.all()
+#     serializer_class = CatSerializer
+
+
+
+# ОБЫЧНЫЕ ВЬЮХИ
 
 # @api_view(['GET', 'POST'])
 # def api_posts(request):
